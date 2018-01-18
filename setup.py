@@ -1,15 +1,11 @@
 import subprocess
-import sys
 from os import path
 
 from setuptools import setup
 
-if sys.version_info[:2] < (3, 0):
-    raise RuntimeError('Python version 3 required.')
-
 here = path.abspath(path.dirname(__file__))
 
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(here, 'README.rst')) as f:
     long_description = f.read()
 
 
@@ -18,7 +14,7 @@ def find_packages(*args, **kwargs):
 
 
 def version():
-    __version = '0.2.2'
+    __version = '0.2.3'
     __tag = 'b'
     if path.exists('.git'):
         __tag = 'git'
