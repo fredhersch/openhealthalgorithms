@@ -1,10 +1,12 @@
-import abc
+from abc import ABCMeta, abstractmethod
 
 __author__ = 'indrajit'
 __email__ = 'eendroroy@gmail.com'
 
 
-class Assessment(abc.ABC):
+class Assessment(object):
+    __metaclass__ = ABCMeta
+
     __data = {}
 
     def __init__(self, input_data=None):
@@ -14,6 +16,6 @@ class Assessment(abc.ABC):
     def _get_data(self):
         return self.__data
 
-    @abc.abstractmethod
+    @abstractmethod
     def assess(self):
         raise NotImplementedError('method not implemented')

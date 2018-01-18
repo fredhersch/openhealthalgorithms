@@ -139,8 +139,7 @@ class WHO(object):
 
         try:
             data = np.loadtxt(file_path, dtype=int, delimiter=',')
-            risk = data[sbp_index] if cholesterol == 'uc' \
-                else data[sbp_index, cholesterol]
+            risk = data[sbp_index] if cholesterol == 'uc' else data[sbp_index, int(cholesterol)]
             return {
                 'risk': int(risk),
                 'risk_range': cvd_risk_string(int(risk)),
